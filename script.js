@@ -1,5 +1,9 @@
 // Variables
-let displayValue = "";
+let operation = {
+    operandA : undefined,
+    operandB : undefined,
+    operator : undefined
+}
 const display = document.getElementById("display");
 
 // Functions 
@@ -30,5 +34,4 @@ function operate(a, b, func) {
 
 function updateDisplay(val) {
     display.textContent = val;
-    displayValue = val;
 }
