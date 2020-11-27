@@ -19,3 +19,7 @@ function divide(a, b) {
     return quot;
 }
 
+function operate(a, b, func) {
+    let result = func(a, b);
+    return result;
+}
