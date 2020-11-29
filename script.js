@@ -1,37 +1,64 @@
 // Variables
 let operation = {
-    operandA : undefined,
-    operandB : undefined,
+    operand : undefined,
     operator : undefined
 }
 const display = document.getElementById("display");
+let currentValue = "";
+let inOperation = false;
+let newOperation = false;
 
 // Functions 
-function add(a, b) {
-    let sum = a + b;
+const add = function(a, b) {
+    let sum = parseInt(a) + parseInt(b);
     return sum;
 }
 
-function subtract(a, b) {
-    let diff = a - b;
+const subtract = function(a, b) {
+    let diff = parseInt(a) - parseInt(b);
     return diff;
 }
 
-function multiply(a, b) {
-    let prod = a * b;
+const multiply = function(a, b) {
+    let prod = parseInt(a) * parseInt(b);
     return prod;
 }
 
-function divide(a, b) {
-    let quot = a / b;
+const divide = function(a, b) {
+    let quot = parseInt(a) / parseInt(b);
     return quot;
 }
 
 function operate(a, b, func) {
     let result = func(a, b);
+    display.textContent = result;
+    currentValue = result;
+    inOperation = false;
+    newOperation = true;
     return result;
 }
 
 function updateDisplay(val) {
-    display.textContent = val;
+    if (inOperation == true) {
+        currentValue = "";
+        display.textContent = "";
+    }
+    if (newOperation == true) {
+        display.textContent = "";
+        newOperation = false;
+    }
+    display.textContent = display.textContent + val;
+    currentValue += val;
 }
+
+function clearDisplay() {
+    display.textContent = "";
+    currentValue = "";
+}
+
+function updateOperation(operator) {
+    inOperation = true;
+    operation.operand = currentValue;
+    operation.operator = operator;
+}
+
