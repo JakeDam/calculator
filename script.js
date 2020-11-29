@@ -42,9 +42,11 @@ function updateDisplay(val) {
     if (inOperation == true) {
         currentValue = "";
         display.textContent = "";
+        inOperation = false;
     }
     if (newOperation == true) {
         display.textContent = "";
+        currentValue = "";
         newOperation = false;
     }
     display.textContent = display.textContent + val;
