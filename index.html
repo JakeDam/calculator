@@ -9,7 +9,7 @@
             <div id="display"></div>
             <div id="row1">
                 <button class="btn-chg" value="" onclick="clearDisplay()">AC</button>
-                <button class="btn-chg">+/-</button>
+                <button class="btn-chg" onclick="makeNegative()">+/-</button>
                 <button class="btn-chg">%</button>
                 <button class="btn-op" onclick="updateOperation(divide)">/</button>
             </div>
@@ -33,7 +33,7 @@
             </div>
             <div id="row5">
                 <button class="btn-dig" value="0" onclick="updateDisplay(this.value)">0</button>
-                <button class="btn-dig">.</button>
+                <button class="btn-dig" onclick="addDecimal()">.</button>
                 <button class="btn-op" onclick="operate(operation.operand, currentValue, operation.operator)">=</button>
             </div>
         </div>
