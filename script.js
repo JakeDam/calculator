@@ -9,7 +9,7 @@ const display = document.getElementById("display");
 display.textContent = "0";
 
 // Variables 
-let currentValue = "0";
+let currentValue = "";
 let inOperation = false;
 let newOperation = false;
 
@@ -35,12 +35,19 @@ const divide = function(a, b) {
 }
 
 function operate(a, b, func) {
-    let result = func(a, b);
-    display.textContent = result;
-    currentValue = result;
-    inOperation = false;
-    newOperation = true;
-    return result;
+    if (operation.operator == undefined) {
+        return;
+    }
+    else {
+        let result = func(a, b);
+        display.textContent = result;
+        currentValue = result;
+        inOperation = false;
+        newOperation = true;
+        operation.operator = undefined;
+        return result;
+    }
+    
 }
 
 function updateDisplay(val) {
@@ -54,7 +61,7 @@ function updateDisplay(val) {
         currentValue = "";
         newOperation = false;
     }
-    if (currentValue == "0" && display.textContent == "0") {
+    if ((currentValue == "0" || currentValue == "") && display.textContent == "0") {
         display.textContent = "";
         if (val == 0) {
             display.textContent = "0";
@@ -73,7 +80,7 @@ function updateDisplay(val) {
 
 function clearDisplay() {
     display.textContent = "0";
-    currentValue = "0";
+    currentValue = "";
 }
 
 function updateOperation(operator) {
@@ -88,15 +95,23 @@ function makeNegative() {
 }
 
 function addDecimal() {
+    if (inOperation == true) {
+        currentValue = "0.";
+        display.textContent = currentValue;
+        inOperation = false;
+    }
     if (newOperation == true) {
         currentValue = "0.";
         display.textContent = currentValue;
+        newOperation = false;
+    }
+    if (currentValue.includes(".") == true) {
+        return;
     }
     else {
         currentValue = currentValue + "."
         display.textContent = currentValue;
     }
-    
 }
   
 
