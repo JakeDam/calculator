@@ -30,6 +30,9 @@ const multiply = function(a, b) {
 }
 
 const divide = function(a, b) {
+    if (b == "0") {
+        return "ERROR";
+    }
     let quot = parseFloat(a) / parseFloat(b);
     return quot;
 }
@@ -88,6 +91,9 @@ function clearDisplay() {
 
 // Adds operation function to operation object and executes function if it already exists 
 function updateOperation(operator) {
+    if (currentValue == "") {
+        return;
+    }
     if (operation.operator != undefined && operation.operand != undefined) {
         operate(operation.operand, currentValue, operation.operator);
     }
