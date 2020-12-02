@@ -15,17 +15,17 @@ let newOperation = false;
 
 // Calculation functions 
 const add = function(a, b) {
-    let sum = parseFloat(a) + parseFloat(b);
+    const sum = parseFloat(a) + parseFloat(b);
     return sum;
 }
 
 const subtract = function(a, b) {
-    let diff = parseFloat(a) - parseFloat(b);
+    const diff = parseFloat(a) - parseFloat(b);
     return diff;
 }
 
 const multiply = function(a, b) {
-    let prod = parseFloat(a) * parseFloat(b);
+    const prod = parseFloat(a) * parseFloat(b);
     return prod;
 }
 
@@ -33,7 +33,7 @@ const divide = function(a, b) {
     if (b == "0") {
         return "ERROR";
     }
-    let quot = parseFloat(a) / parseFloat(b);
+    const quot = parseFloat(a) / parseFloat(b);
     return quot;
 }
 
@@ -43,7 +43,7 @@ function operate(a, b, func) {
         return;
     }
     else {
-        let result = func(a, b);
+        const result = func(a, b);
         display.textContent = result;
         currentValue = result;
         inOperation = false;
@@ -128,6 +128,12 @@ function addDecimal() {
         currentValue = currentValue + "."
         display.textContent = currentValue;
     }
+}
+
+// Changes number to a decimal percent 
+function toPercent() {
+    currentValue = currentValue * 0.01;
+    display.textContent = currentValue;
 }
   
 
