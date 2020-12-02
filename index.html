@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="styles.css">
         <title>Calculator | Jake Dam</title>
     </head>
     <body>
@@ -10,7 +11,7 @@
             <div id="row1">
                 <button class="btn-chg" value="" onclick="clearDisplay()">AC</button>
                 <button class="btn-chg" onclick="makeNegative()">+/-</button>
-                <button class="btn-chg">%</button>
+                <button class="btn-chg" onclick="toPercent()">%</button>
                 <button class="btn-op" onclick="updateOperation(divide)">/</button>
             </div>
             <div id="row2">
