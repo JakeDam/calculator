@@ -13,7 +13,7 @@ let currentValue = "";
 let inOperation = false;
 let newOperation = false;
 
-// Functions 
+// Calculation functions 
 const add = function(a, b) {
     let sum = parseFloat(a) + parseFloat(b);
     return sum;
@@ -34,8 +34,9 @@ const divide = function(a, b) {
     return quot;
 }
 
+// Takes operand and current values and applies cacluation function 
 function operate(a, b, func) {
-    if (operation.operator == undefined) {
+    if (operation.operator == undefined || operation.operand == undefined) {
         return;
     }
     else {
@@ -50,6 +51,7 @@ function operate(a, b, func) {
     
 }
 
+// Updates display and current value 
 function updateDisplay(val) {
     if (inOperation == true) {
         currentValue = "";
@@ -78,22 +80,30 @@ function updateDisplay(val) {
     
 }
 
+// Clears display and current value 
 function clearDisplay() {
     display.textContent = "0";
     currentValue = "";
 }
 
+// Adds operation function to operation object and executes function if it already exists 
 function updateOperation(operator) {
+    if (operation.operator != undefined && operation.operand != undefined) {
+        operate(operation.operand, currentValue, operation.operator);
+    }
     inOperation = true;
     operation.operand = currentValue;
     operation.operator = operator;
 }
 
+// Converts current value to negative 
 function makeNegative() {
     currentValue = currentValue * -1;
     display.textContent = currentValue;
 }
 
+
+// Adds decimal point functionality 
 function addDecimal() {
     if (inOperation == true) {
         currentValue = "0.";
