@@ -135,5 +135,19 @@ function toPercent() {
     currentValue = currentValue * 0.01;
     display.textContent = currentValue;
 }
+
+// Deletes one digit at a time 
+function backspace() {
+    if (currentValue == "" || currentValue == 0) {
+        return;
+    }
+    else {
+        currentValue = currentValue.slice(0, -1);
+        if (currentValue == "") {
+            currentValue = "0";
+        }
+        display.textContent = currentValue;
+    }
+}
   
 
