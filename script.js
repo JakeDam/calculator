@@ -46,12 +46,14 @@ function operate(a, b, func) {
         let result = func(a, b);
         if (result > 999999999) {
             result = expo(result);
+
         }
         display.textContent = result;
         currentValue = result;
         inOperation = false;
         newOperation = true;
         operation.operator = undefined;
+        operation.operand = undefined;
         return result;
     }
     
@@ -65,8 +67,8 @@ function updateDisplay(val) {
         inOperation = false;
     }
     if (newOperation == true) {
-        display.textContent = "";
         currentValue = "";
+        display.textContent = "";
         newOperation = false;
     }
     if (currentValue.length == 9) {
