@@ -43,7 +43,10 @@ function operate(a, b, func) {
         return;
     }
     else {
-        const result = func(a, b);
+        let result = func(a, b);
+        if (result > 999999999) {
+            result = expo(result);
+        }
         display.textContent = result;
         currentValue = result;
         inOperation = false;
@@ -65,6 +68,9 @@ function updateDisplay(val) {
         display.textContent = "";
         currentValue = "";
         newOperation = false;
+    }
+    if (currentValue.length == 9) {
+        return;
     }
     if ((currentValue == "0" || currentValue == "") && display.textContent == "0") {
         display.textContent = "";
@@ -148,6 +154,11 @@ function backspace() {
         }
         display.textContent = currentValue;
     }
+}
+
+// Converts number to scientific notation 
+function expo(x, f) {
+    return Number.parseFloat(x).toExponential(f);
 }
   
 
