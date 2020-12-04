@@ -99,7 +99,7 @@ function clearDisplay() {
 
 // Adds operation function to operation object and executes function if it already exists 
 function updateOperation(operator) {
-    if (currentValue == "") {
+    if (currentValue === "") {
         return;
     }
     if (operation.operator != undefined && operation.operand != undefined) {
