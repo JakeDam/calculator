@@ -46,7 +46,10 @@ function operate(a, b, func) {
         let result = func(a, b);
         if (result > 999999999) {
             result = expo(result);
-
+            result = Number(result).toPrecision(5);
+        }
+        if (result.toString().length > 9) {
+            result = Number(result).toPrecision(5);
         }
         display.textContent = result;
         currentValue = result;
@@ -141,6 +144,9 @@ function addDecimal() {
 // Changes number to a decimal percent 
 function toPercent() {
     currentValue = currentValue * 0.01;
+    if(currentValue.toString().length > 9) {
+        currentValue = Number(currentValue).toPrecision(5);
+    }
     display.textContent = currentValue;
 }
 
