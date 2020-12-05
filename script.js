@@ -44,11 +44,11 @@ function operate(a, b, func) {
     }
     else {
         let result = func(a, b);
-        if (result > 999999999999) {
+        if (result > 999999999) {
             result = expo(result);
             result = Number(result).toPrecision(5);
         }
-        if (result.toString().length > 12) {
+        if (result.toString().length > 9) {
             result = Number(result).toPrecision(5);
         }
         display.textContent = result;
@@ -74,7 +74,7 @@ function updateDisplay(val) {
         display.textContent = "";
         newOperation = false;
     }
-    if (currentValue.length == 12) {
+    if (currentValue.length == 9) {
         return;
     }
     if ((currentValue == "0" || currentValue == "") && display.textContent == "0") {
@@ -135,6 +135,10 @@ function addDecimal() {
     if (currentValue.includes(".") == true) {
         return;
     }
+    if (currentValue == "") {
+        currentValue = "0."
+        display.textContent = currentValue;
+    }
     else {
         currentValue = currentValue + "."
         display.textContent = currentValue;
@@ -144,7 +148,7 @@ function addDecimal() {
 // Changes number to a decimal percent 
 function toPercent() {
     currentValue = currentValue * 0.01;
-    if(currentValue.toString().length > 12) {
+    if(currentValue.toString().length > 9) {
         currentValue = Number(currentValue).toPrecision(5);
     }
     display.textContent = currentValue;

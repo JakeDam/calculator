@@ -1,15 +1,29 @@
 html, body {
     margin: 0; 
     height: 100%;
-    background-color: black;
-    color: white;
+    background-color: #3a3a3a;
+    font-size: 64px;
+    font-family: 'JetBrains Mono', monospace;
+    color: #f1f1f1;
 }
 
 button {
-    height: 60%;
+    height: 90%;
     width: 90%;
     border-radius: 10%;
     font-size: 24px;
+    color: #f1f1f1;
+    background-color: #6b6b6b;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+button:hover {
+    background-color: #c2c2c2;
+    transform: scale(1.1);
+}
+
+button:focus {
+    outline: 0;
 }
 
 .row {
@@ -27,6 +41,14 @@ button {
     align-content: stretch;
 }
 
+.btn-op {
+    background-color: #5dc21e;
+}
+
+.btn-op:hover {
+    background-color: #107c10;
+}
+
 #calc-container {
     display: flex;
     flex-direction: column;
@@ -37,8 +59,15 @@ button {
     height: 75vh;
     width: 25vw;
     align-items: stretch;
+    background-color: #000000;
+    border-radius: 2%;
 }
 
 #display {
-    height: 20%;
+    display: flex;
+    flex-shrink: 1;
+    height: 15%;
+    margin: 5px;
+    align-self: flex-end;
+    align-items: flex-end;
 }
