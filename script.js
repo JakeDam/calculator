@@ -197,7 +197,7 @@ window.addEventListener("keydown", function(e) {
     else if (e.key == "-") {
         updateOperation(subtract);
     }
-    else if (e.key == "Enter" || e.key == "=") {
+    else if (e.key == "=") {
         operate(operation.operand, currentValue, operation.operator);
     }
 }, false);
