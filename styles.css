@@ -65,9 +65,9 @@ button:focus {
 
 #display {
     display: flex;
-    height: 15%;
+    height: 10%;
     margin: 5px;
     align-self: flex-end;
     align-items: flex-end;
-    font-size: 80%;
+    font-size: 60%;
 }

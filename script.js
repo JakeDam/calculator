@@ -172,5 +172,32 @@ function backspace() {
 function expo(x, f) {
     return Number.parseFloat(x).toExponential(f);
 }
-  
 
+// Add eventlistener to digit and operation keys
+window.addEventListener("keydown", function(e) {
+    console.log(e);
+    if (e.key >= 0 && e.key <= 9) {
+        updateDisplay(e.key);
+    }
+    else if (e.key == "c") {
+        clearDisplay();
+    }
+    else if (e.key == "Backspace" || e.key == "Delete") {
+        backspace();
+    }
+    else if (e.key == "/") {
+        updateOperation(divide);
+    }
+    else if (e.key == "x" || e.key == "*") {
+        updateOperation(multiply);
+    }
+    else if (e.key == "+") {
+        updateOperation(add);
+    }
+    else if (e.key == "-") {
+        updateOperation(subtract);
+    }
+    else if (e.key == "Enter" || e.key == "=") {
+        operate(operation.operand, currentValue, operation.operator);
+    }
+}, false);
